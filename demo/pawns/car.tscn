@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1ipngcxcqndd"]
+
+[ext_resource type="Texture2D" uid="uid://frlidm3rsngk" path="res://icon.svg" id="1_l8eax"]
+[ext_resource type="Script" path="res://addons/Neat/demo/pawns/car.gd" id="1_s7ot2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r03uj"]
+size = Vector2(125, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4i4y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l8eax")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Car" type="RigidBody2D" groups=["pawn"]]
+rotation = -1.5708
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_s7ot2")
+
+[node name="Area2D" type="Area2D" parent="." groups=["pawn"]]
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.50001, 7.15256e-06)
+shape = SubResource("RectangleShape2D_r03uj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_s4i4y")
+
+[node name="raycasts" type="Node2D" parent="."]
+
+[node name="left" type="RayCast2D" parent="raycasts"]
+target_position = Vector2(-50, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="down" type="RayCast2D" parent="raycasts"]
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="right" type="RayCast2D" parent="raycasts"]
+target_position = Vector2(50, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="up" type="RayCast2D" parent="raycasts"]
+target_position = Vector2(0, -50)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwcc0otw6l2vn"]
+
+[ext_resource type="Script" path="res://addons/Neat/NEAT_usability/camera/ZoomPanCam.gd" id="1"]
+
+[node name="ZoomPanCam" type="Camera2D"]
+script = ExtResource("1")

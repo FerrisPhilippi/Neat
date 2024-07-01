@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfh3bctwn1qc2"]
+
+[ext_resource type="PackedScene" path="res://addons/Neat/NEAT_usability/gui/Window.tscn" id="8"]
+[ext_resource type="Script" path="res://addons/Neat/NEAT_usability/gui/species_list/SpeciesList.gd" id="9"]
+
+[node name="SpeciesList" instance=ExtResource("8")]
+offset_right = 528.0
+offset_bottom = 283.0
+script = ExtResource("9")
+
+[node name="Background" parent="." index="0"]
+layout_mode = 2
+
+[node name="WindowLayout" parent="." index="1"]
+layout_mode = 2
+
+[node name="Decorator" parent="WindowLayout" index="0"]
+layout_mode = 2
+
+[node name="Panel" parent="WindowLayout/Decorator" index="0"]
+layout_mode = 2
+
+[node name="DecSeperator" parent="WindowLayout/Decorator" index="1"]
+layout_mode = 2
+
+[node name="WindowName" parent="WindowLayout/Decorator/DecSeperator" index="0"]
+layout_mode = 2
+text = "Species List"
+
+[node name="Close" parent="WindowLayout/Decorator/DecSeperator" index="1"]
+layout_mode = 2
+
+[node name="InfoContainer" type="HBoxContainer" parent="WindowLayout" index="1"]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="GenInfo" type="Label" parent="WindowLayout/InfoContainer" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Displaying Generation: "
+
+[node name="VSeparator" type="VSeparator" parent="WindowLayout/InfoContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VisMenu" type="MenuButton" parent="WindowLayout/InfoContainer" index="2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Change Visibility"
+
+[node name="SpeciesListContent" type="MarginContainer" parent="WindowLayout" index="2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ContentSeperator" type="HBoxContainer" parent="WindowLayout/SpeciesListContent" index="0"]
+layout_mode = 2
+
+[node name="SpeciesDetail" type="VBoxContainer" parent="WindowLayout/SpeciesListContent/ContentSeperator" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpeciesInfo" type="RichTextLabel" parent="WindowLayout/SpeciesListContent/ContentSeperator/SpeciesDetail" index="0"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="WindowLayout/SpeciesListContent/ContentSeperator/SpeciesDetail" index="1"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="MemberList" type="ItemList" parent="WindowLayout/SpeciesListContent/ContentSeperator/SpeciesDetail/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+auto_height = true
+
+[node name="SpeciesOverview" type="VBoxContainer" parent="WindowLayout/SpeciesListContent/ContentSeperator" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PopulationInfo" type="RichTextLabel" parent="WindowLayout/SpeciesListContent/ContentSeperator/SpeciesOverview" index="0"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="WindowLayout/SpeciesListContent/ContentSeperator/SpeciesOverview" index="1"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="SpeciesList" type="ItemList" parent="WindowLayout/SpeciesListContent/ContentSeperator/SpeciesOverview/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+auto_height = true

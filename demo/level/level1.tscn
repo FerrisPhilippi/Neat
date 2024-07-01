@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnf6i0tvi3fkn"]
+
+[ext_resource type="Script" path="res://addons/Neat/demo/level/level_1.gd" id="1_mv3mv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie4hr"]
+size = Vector2(31.5, 82)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_mv3mv")
+
+[node name="Start" type="Node2D" parent="."]
+position = Vector2(-181, -224)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="." groups=["border"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(559.137, 350.312)
+scale = Vector2(2.31048, 2.26826)
+polygon = PackedVector2Array(-372, -221, -397, -191, -384, -103, -306, -65, -183, -90, -87, -142, -114, -200, -187, -243, -339, -237)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(624, 338)
+scale = Vector2(2.37362, 2.22352)
+polygon = PackedVector2Array(-401, -245, -455, -185, -435, -92, -375, -41, -263, -35, -161, -69, -85, -112, -86, -179, -137, -262, -325, -271, -400, -246, -434, -251, -334, -297, -118, -289, -45, -166, -53, -55, -275, -2, -497, -55, -451, -253)
+
+[node name="checkpoints" type="Area2D" parent="." groups=["checkpoint"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoints"]
+position = Vector2(-12, -229)
+shape = SubResource("RectangleShape2D_ie4hr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="checkpoints"]
+position = Vector2(246, -171)
+rotation = 0.837654
+shape = SubResource("RectangleShape2D_ie4hr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="checkpoints"]
+position = Vector2(368, -45)
+rotation = 1.29781
+shape = SubResource("RectangleShape2D_ie4hr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="checkpoints"]
+position = Vector2(372, 68)
+rotation = 2.36999
+shape = SubResource("RectangleShape2D_ie4hr")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="checkpoints"]
+position = Vector2(204, 155)
+rotation = 2.79301
+shape = SubResource("RectangleShape2D_ie4hr")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="checkpoints"]
+position = Vector2(-159, 229)
+rotation = 3.35845
+shape = SubResource("RectangleShape2D_ie4hr")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="checkpoints"]
+position = Vector2(-372, 113)
+rotation = 1.18485
+shape = SubResource("RectangleShape2D_ie4hr")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="checkpoints"]
+position = Vector2(-385, -104)
+rotation = 1.84419
+shape = SubResource("RectangleShape2D_ie4hr")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="checkpoints"]
+position = Vector2(-306, -176)
+rotation = 2.52946
+shape = SubResource("RectangleShape2D_ie4hr")

@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource type="Texture2D" uid="uid://dl7n4ogdjr54i" path="res://addons/Neat/NEAT_usability/textures/close_window.png" id="1"]
+[ext_resource type="Script" path="res://addons/Neat/NEAT_usability/gui/Window.gd" id="2"]
+[ext_resource type="FontFile" path="res://addons/Neat/NEAT_usability/fonts/dynamics/roboto-bold.tres" id="3"]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.878431, 0.882353, 0.647059, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="Window" type="MarginContainer"]
+offset_right = 179.0
+offset_bottom = 118.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="."]
+offset_right = 179.0
+offset_bottom = 118.0
+theme_override_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowLayout" type="VBoxContainer" parent="."]
+offset_right = 179.0
+offset_bottom = 118.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Decorator" type="MarginContainer" parent="WindowLayout"]
+offset_right = 179.0
+offset_bottom = 26.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="WindowLayout/Decorator"]
+offset_right = 179.0
+offset_bottom = 26.0
+theme_override_styles/panel = SubResource( 2 )
+
+[node name="DecSeperator" type="HBoxContainer" parent="WindowLayout/Decorator"]
+offset_right = 179.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowName" type="Label" parent="WindowLayout/Decorator/DecSeperator"]
+offset_top = 3.0
+offset_right = 143.0
+offset_bottom = 22.0
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource( 3 )
+text = "Window Name"
+
+[node name="Close" type="Button" parent="WindowLayout/Decorator/DecSeperator"]
+offset_left = 147.0
+offset_right = 179.0
+offset_bottom = 26.0
+icon = ExtResource( 1 )
+flat = true
+[connection signal="gui_input" from="WindowLayout/Decorator" to="WindowLayout/Decorator" method="_on_Decorator_gui_input"]
+[connection signal="button_down" from="WindowLayout/Decorator/DecSeperator/Close" to="WindowLayout/Decorator" method="_on_Close_button_down"]

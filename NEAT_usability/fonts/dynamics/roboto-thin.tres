@@ -1,0 +1,7 @@
+[gd_resource type="FontFile" load_steps=2 format=2]
+
+[ext_resource type="FontFile" uid="uid://dw156vd2sjqej" path="res://addons/Neat/NEAT_usability/fonts/Data/Roboto-Thin.ttf" id="1"]
+
+[resource]
+size = 80
+font_data = ExtResource( 1 )
