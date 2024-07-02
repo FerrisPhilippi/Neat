@@ -105,7 +105,10 @@ func add_direct_link() -> void:
 	an output neuron.
 	"""
 	for _try in Params.num_tries_find_link:
-		var input_neuron = neurons[Utils.random_i_range(2, Params.num_inputs + 1)]
+		var ran = Utils.random_i_range(2, Params.num_inputs + 1)
+		if !neurons.has(ran):
+			return
+		var input_neuron = neurons[ran]
 		var output_neuron = neurons[Utils.random_i_range(Params.num_inputs + 1,
 														Params.num_outputs + 1)]
 		var innov_id = Innovations.check_new_link(input_neuron.neuron_id,
